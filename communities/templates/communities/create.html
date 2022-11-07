@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block title %} | 새 글 작성 
+{% endblock title %}
+
+{% block content %}
+<section class="mainbg">
+  <div class="container">
+    <div class="boxbg p-5">
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form post_form %}
+        <div class="form-group d-flex justify-content-center my-3">
+          <button type="submit" class="btn btn-all">등록</button>
+          <a href="{% url 'communities:board' %}" class="btn likebtn mx-3">취소</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock content %}
+{% block js %}{% endblock js %}
